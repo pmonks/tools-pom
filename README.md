@@ -6,8 +6,6 @@
 [![Latest Version](https://img.shields.io/clojars/v/com.github.pmonks/tools-pom)](https://clojars.org/com.github.pmonks/tools-pom/) [![Open Issues](https://img.shields.io/github/issues/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/issues) [![License](https://img.shields.io/github/license/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/blob/main/LICENSE)
 
 
-<img alt="Ice cold can of hangover-inducing rubbish beer" align="right" width="25%" src="https://pabstblueribbon.com/wp-content/uploads/2020/10/pbr-org.png">
-
 # tools-pom
 
 Clojure tools.build task(s) related to the generation of comprehensive pom.xml files.
@@ -37,7 +35,14 @@ Express a maven dependency in your `deps.edn`, for a build tool alias:
        :ns-default your.build.ns}
 ```
 
-### Adding comprehensive `pom` information and a `pom` build task to your build:
+### Require the namespace
+
+````clojure
+(ns your.build.ns
+  (:require [tools-pom.tasks :as pom]))
+```
+
+### Add comprehensive `pom` information and a `pom` build task to your build
 
 ```clojure
 (def lib       'com.github.yourusername/yourproject)
@@ -67,6 +72,10 @@ Express a maven dependency in your `deps.edn`, for a build tool alias:
       (set-opts)
       (pom/pom)))
 ```
+
+### API Documentation
+
+[API documentation is available here](https://pmonks.github.io/tools-pom/).
 
 ## Contributor Information
 
