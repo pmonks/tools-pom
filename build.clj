@@ -39,7 +39,7 @@ clojure -A:deps -T:build help/doc"
          :version      version
          :write-pom    true
          :validate-pom true
-         :pom          {:description      "Clojure tools.build task(s) related to the generation of comprehensive pom.xml files."
+         :pom          {:description      "A Clojure tools.build task library related to the generation of comprehensive pom.xml files."
                         :url              "https://github.com/pmonks/tools-pom"
                         :licenses         [:license   {:name "Apache License 2.0" :url "http://www.apache.org/licenses/LICENSE-2.0.html"}]
                         :developers       [:developer {:id "pmonks" :name "Peter Monks" :email "pmonks+tools-pom@gmail.com"}]
