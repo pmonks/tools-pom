@@ -19,17 +19,7 @@
 (ns tools-pom.tasks
   "Clojure tools.deps tasks related to comprehensive pom.xml files.
 
-  The following build task functions are provided, with the
-  specified required and optional hash map options:
-
-  pom            -- opt: :lib a symbol identifying your project e.g. 'com.github.pmonks/tools-pom
-                         :version a string containing the version of your project e.g. \"1.0.0-SNAPSHOT\"
-                         :pom-file the name of the file to write to (defaults to \"./pom.xml\")
-                         :write-pom a flag indicating whether to invoke \"clj -Spom\" after generating the basic pom (i.e. adding dependencies and repositories from your deps.edn file) (defaults to false)
-                         :validate-pom a flag indicating whether to validate the generated pom.xml file after it's been constructed (defaults to false)
-                         :pom a map containing other POM elements (see https://maven.apache.org/pom.html for details).
-
-  All of the above build tasks return the opts hash map they were passed
+  All of the build tasks return the opts hash map they were passed
   (unlike some of the functions in clojure.tools.build.api)."
   (:require [clojure.java.io         :as io]
             [clojure.data.xml        :as xml]
