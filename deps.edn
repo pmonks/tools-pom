@@ -21,7 +21,7 @@
     io.github.clojure/tools.build         {:git/tag "v0.6.2" :git/sha "226fb52"}
     clj-xml-validation/clj-xml-validation {:mvn/version "1.0.2"}
     camel-snake-kebab/camel-snake-kebab   {:mvn/version "0.4.2"}
-    com.github.pmonks/tools-convenience   {:mvn/version "1.0.19"}}
+    com.github.pmonks/tools-convenience   {:mvn/version "1.0.28"}}
  :aliases
    {; ---- TOOL ALIASES ----
 
