@@ -23,7 +23,6 @@ For more information, run:
 
 clojure -A:deps -T:build help/doc"
   (:require [clojure.tools.build.api :as b]
-            [codox.main              :as codox]
             [org.corfield.build      :as bb]
             [tools-convenience.api   :as tc]
             [pbr.tasks               :as pbr]))
@@ -44,9 +43,7 @@ clojure -A:deps -T:build help/doc"
                         :licenses         [:license   {:name "Apache License 2.0" :url "http://www.apache.org/licenses/LICENSE-2.0.html"}]
                         :developers       [:developer {:id "pmonks" :name "Peter Monks" :email "pmonks+tools-pom@gmail.com"}]
                         :scm              {:url "https://github.com/pmonks/tools-pom" :connection "scm:git:git://github.com/pmonks/tools-pom.git" :developer-connection "scm:git:ssh://git@github.com/pmonks/tools-pom.git"}
-                        :issue-management {:system "github" :url "https://github.com/pmonks/tools-pom/issues"}}
-         :codox        {:source-paths ["src"]
-                        :source-uri   "https://github.com/pmonks/tools-pom/blob/main/{filepath}#L{line}"}))
+                        :issue-management {:system "github" :url "https://github.com/pmonks/tools-pom/issues"}}))
 
 ; Build tasks
 (defn clean
@@ -90,9 +87,11 @@ clojure -A:deps -T:build help/doc"
     (lint)))
 
 (defn licenses
-  "Attempts to determine all licenses used by all dependencies in the project."
+  "Attempts to list all licenses for the transitive set of dependencies of the project, using SPDX license expressions."
   [opts]
-  (pbr/licenses opts))
+  (-> opts
+    (set-opts)
+    (pbr/licenses)))   ;####TODO: Replace with lic/licenses once PBR is upgraded to 2.0+
 
 (defn check-release
   "Check that a release can be done from the current directory."
@@ -118,6 +117,15 @@ clojure -A:deps -T:build help/doc"
       (pbr/pom)
       (bb/jar)))
 
+; ####TODO: awaiting next version of PBR
+(comment
+(defn deploy
+  "Deploys the library JAR to Clojars."
+  [opts]
+  (-> opts
+      (set-opts)
+      (pbr/deploy)))
+)
 ; Temporary implementations while we await the version of PBR that includes these tasks
 (defn deploy
   "Deploys the library JAR to Clojars."
@@ -133,23 +141,6 @@ clojure -A:deps -T:build help/doc"
 
 (defn docs
   "Generates codox documentation"
-  [opts]
-  (codox/generate-docs (into (:codox (set-opts nil))
-                             opts)))
-
-; ####TODO: awaiting next version of PBR
-(comment
-(defn deploy
-  "Deploys the library JAR to Clojars."
-  [opts]
-  (-> opts
-      (set-opts)
-      (pbr/deploy)))
-
-(defn docs
-  "Generates documentation using Codox."
-  [opts]
-  (-> opts
-      (set-opts)
-      (pbr/codox)))
-)
+  [_]
+  (tc/ensure-command "clojure")
+  (tc/exec "clojure -Srepro -X:codox"))
