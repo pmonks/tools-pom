@@ -10,13 +10,7 @@
 
 Clojure tools.build task(s) related to the generation of comprehensive pom.xml files.
 
-## Features
-
-### API Documentation
-
-[API documentation is available here](https://pmonks.github.io/tools-pom/).
-
-### Build tasks
+## Tasks
 
 1. `pom` - generate a comprehensive `pom.xml` file from EDN (which can come from anywhere - stored in your `deps.edn` or a separate file, or synthesised on the fly in your build tool script).
 
@@ -37,7 +31,7 @@ Express a maven dependency in your `deps.edn`, for a build tool alias:
 
 ### Require the namespace
 
-````clojure
+```clojure
 (ns your.build.ns
   (:require [tools-pom.tasks :as pom]))
 ```
