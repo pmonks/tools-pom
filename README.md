@@ -8,7 +8,7 @@
 
 # tools-pom
 
-Clojure tools.build task(s) related to the generation of comprehensive pom.xml files.
+A Clojure [tools.build](https://github.com/clojure/tools.build) task library related to the generation of comprehensive pom.xml files (beyond the limited set of POM elements tools.build/tools.deps generates).
 
 ## Tasks
 
