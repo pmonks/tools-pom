@@ -12,7 +12,7 @@ Clojure tools.build task(s) related to the generation of comprehensive pom.xml f
 
 ## Tasks
 
-1. `pom` - generate a comprehensive `pom.xml` file from EDN (which can come from anywhere - stored in your `deps.edn` or a separate file, or synthesised on the fly in your build tool script).
+1. `pom` - generate a comprehensive `pom.xml` file from EDN (which can come from anywhere - stored in your `build.clj`, `deps.edn` or a separate file, or synthesised on the fly in your build tool script).
 
 Note that the `pom` task is entirely data-driven, so if your input data includes elements that are not valid in a [Maven POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html), the resulting file will be invalid.  You can check your input data by enabling the `:validate-pom` flag in the options that get passed to the task.
 
