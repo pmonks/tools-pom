@@ -68,7 +68,7 @@
         :issue-management {:system \"github\" :url \"https://github.com/yourusername/yourproject/issues\"}}))"
   [opts]
   (tc/ensure-command "clojure")
-  (println "ℹ️ Generating comprehensive pom.xml...")
+  (println "Generating comprehensive pom.xml...")
   (let [pom-file (get opts :pom-file "./pom.xml")
         pom-in   (merge (when (:lib     opts) {:group-id (namespace (:lib opts)) :artifact-id (name (:lib opts)) :name (name (:lib opts))})
                         (when (:version opts) {:version (:version opts)})
@@ -87,6 +87,6 @@
       (let [is-pom?           (xmlv/create-validation-fn (io/reader "https://maven.apache.org/xsd/maven-4.0.0.xsd"))
             validation-result (is-pom? (slurp pom-file))]
         (when-not (xmlv/valid? validation-result)
-          (println "⚠️ Generated pom.xml is not valid; check your input data. Errors:")
+          (println "Generated pom.xml is not valid; check your input data. Errors:")
           (doall (map #(println "  Line" (get % :line-number "?") "column" (str (get % :column-number "?") ":") (:message %))  (xmlv/errors validation-result)))))))
   opts)
