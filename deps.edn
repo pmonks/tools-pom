@@ -18,7 +18,7 @@
 
 {:deps
    {org.clojure/data.xml                  {:mvn/version "0.2.0-alpha6"}
-    io.github.clojure/tools.build         {:git/tag "v0.6.2" :git/sha "226fb52"}
+    io.github.clojure/tools.build         {:git/tag     "v0.6.5" :git/sha "a0c3ff6"}
     clj-xml-validation/clj-xml-validation {:mvn/version "1.0.2"}
     camel-snake-kebab/camel-snake-kebab   {:mvn/version "0.4.2"}
     com.github.pmonks/tools-convenience   {:mvn/version "1.0.33"}}
