@@ -82,7 +82,7 @@
     (with-open [pom-writer (io/writer pom-file)]
       (xml/emit pom-xml pom-writer :encoding "UTF8"))
     (when (:write-pom opts)
-      (tc/exec "clojure -Srepro -Spom"))   ; tools.build/write-pom is nowhere as useful as clojure -Spom but the latter doesn't have an API so we just fork it instead..
+      (tc/clojure "-Spom"))   ; tools.build/write-pom is nowhere as useful as clojure -Spom but the latter doesn't have an API so we just fork it instead..
     (when (:validate-pom opts)
       (let [is-pom?           (xmlv/create-validation-fn (io/reader "https://maven.apache.org/xsd/maven-4.0.0.xsd"))
             validation-result (is-pom? (slurp pom-file))]
