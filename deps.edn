@@ -17,11 +17,11 @@
 ;
 
 {:deps
-   {org.clojure/data.xml                  {:mvn/version "0.2.0-alpha6"}
+   {org.clojure/data.xml                  {:mvn/version "0.2.0-alpha7"}
     io.github.clojure/tools.build         {:git/tag "v0.8.3" :git/sha "0d20256"}
     clj-xml-validation/clj-xml-validation {:mvn/version "1.0.2"}
     camel-snake-kebab/camel-snake-kebab   {:mvn/version "0.4.3"}
-    com.github.pmonks/tools-convenience   {:mvn/version "1.0.109"}}
+    com.github.pmonks/tools-convenience   {:mvn/version "1.0.111"}}
  :aliases
    {:build {:deps       {io.github.seancorfield/build-clj {:git/tag "v0.8.3" :git/sha "7ac1f8d"}
                          com.github.pmonks/pbr            {:mvn/version "RELEASE"}
