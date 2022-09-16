@@ -8,13 +8,19 @@
 
 # tools-pom
 
-A Clojure [tools.build](https://github.com/clojure/tools.build) task library related to the generation of comprehensive pom.xml files (beyond the limited set of POM elements tools.build/tools.deps generates).
+A Clojure [tools.build](https://github.com/clojure/tools.build) task library related to the generation of comprehensive `pom.xml` files (beyond the limited set of POM elements tools.build/tools.deps generates).
 
 ## Tasks
 
 1. `pom` - generate a comprehensive `pom.xml` file from EDN (which can come from anywhere - stored in your `build.clj`, `deps.edn` or a separate file, or synthesised on the fly in your build tool script).
 
-Note that the `pom` task is entirely data-driven, so if your input data includes elements that are not valid in a [Maven POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html), the resulting file will be invalid.  You can check your input data by enabling the `:validate-pom` flag in the options that get passed to the task.
+Note that the `pom` task is entirely data-driven, so if your input data includes elements that are not valid in a [Maven POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html), the resulting file will be invalid.  You can check your input data by enabling the `:validate-pom` flag in the options that get passed to the task - this validates the resulting `pom.xml` file against the Maven POM schema, reporting any errors.
+
+**Important note:** it is strongly recommended that you do not use this task library in conjunction with [build-clj](https://github.com/seancorfield/build-clj) (e.g. for JAR file construction), since:
+1. [build-clj silently overwrites various elements inside whatever "template" `pom.xml` is provided to it](https://github.com/seancorfield/build-clj/issues/24)
+2. some of the values for those overwritten elements assume you [label your tags in source control a specific way](https://github.com/seancorfield/build-clj/blob/v0.8.3/src/org/corfield/build.clj#L151), which will [break downstream tooling that depends on those values being correct](https://cljdoc.org/builds/59944)
+
+The alternative is to use vanilla tools.build tasks for all build operations that involve `pom.xml` files (notably JAR file construction), since they doesn't suffer from the same issue.
 
 ## Using the library
 
