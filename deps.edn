@@ -18,12 +18,12 @@
 
 {:deps
    {org.clojure/data.xml                  {:mvn/version "0.2.0-alpha8"}
-    io.github.clojure/tools.build         {:git/tag "v0.8.3" :git/sha "0d20256"}
+    io.github.clojure/tools.build         {:git/tag "v0.8.4" :git/sha "8c3cd69"}
     clj-xml-validation/clj-xml-validation {:mvn/version "1.0.2"}
     camel-snake-kebab/camel-snake-kebab   {:mvn/version "0.4.3"}
     com.github.pmonks/tools-convenience   {:mvn/version "1.0.116"}}
  :aliases
-   {:build {:deps       {io.github.clojure/tools.build {:git/tag "v0.8.3" :git/sha "0d20256"}
+   {:build {:deps       {io.github.clojure/tools.build {:git/tag "v0.8.4" :git/sha "8c3cd69"}
                          com.github.pmonks/pbr         {:mvn/version "RELEASE"}
                          com.github.pmonks/tools-pom   {:local/root "."}}
             :ns-default pbr.build}}}
