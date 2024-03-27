@@ -16,16 +16,13 @@
 ; SPDX-License-Identifier: Apache-2.0
 ;
 
-(def lib 'com.github.pmonks/tools-pom)
-
 #_{:clj-kondo/ignore [:unresolved-namespace]}
-(def version (format "1.0.%s" (b/git-count-revs nil)))
-
 (defn set-opts
   [opts]
   (assoc opts
-         :lib          lib
-         :version      version
+         :lib          'com.github.pmonks/tools-pom
+         :version      (pbr/calculate-version 1 0)
+         :prod-branch  "release"
          :write-pom    true
          :validate-pom true
          :pom          {:description      "A Clojure tools.build task library related to the generation of comprehensive pom.xml files."
