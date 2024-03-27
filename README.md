@@ -1,9 +1,9 @@
 | | | |
 |---:|:---:|:---:|
-| [**main**](https://github.com/pmonks/tools-pom/tree/main) | [![CI](https://github.com/pmonks/tools-pom/workflows/CI/badge.svg?branch=main)](https://github.com/pmonks/tools-pom/actions?query=workflow%3ACI+branch%3Amain) | [![Dependencies](https://github.com/pmonks/tools-pom/workflows/dependencies/badge.svg?branch=main)](https://github.com/pmonks/tools-pom/actions?query=workflow%3Adependencies+branch%3Amain) |
-| [**dev**](https://github.com/pmonks/tools-pom/tree/dev) | [![CI](https://github.com/pmonks/tools-pom/workflows/CI/badge.svg?branch=dev)](https://github.com/pmonks/tools-pom/actions?query=workflow%3ACI+branch%3Adev) | [![Dependencies](https://github.com/pmonks/tools-pom/workflows/dependencies/badge.svg?branch=dev)](https://github.com/pmonks/tools-pom/actions?query=workflow%3Adependencies+branch%3Adev) |
+| [**release**](https://github.com/pmonks/tools-pom/tree/release) | [![CI](https://github.com/pmonks/tools-pom/actions/workflows/ci.yml/badge.svg?branch=release)](https://github.com/pmonks/tools-pom/actions?query=workflow%3ACI+branch%3Arelease) | [![Dependencies](https://github.com/pmonks/tools-pom/actions/workflows/dependencies.yml/badge.svg?branch=release)](https://github.com/pmonks/tools-pom/actions?query=workflow%3Adependencies+branch%3Arelease) |
+| [**dev**](https://github.com/pmonks/tools-pom/tree/dev) | [![CI](https://github.com/pmonks/tools-pom/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/pmonks/tools-pom/actions?query=workflow%3ACI+branch%3Adev) | [![Dependencies](https://github.com/pmonks/tools-pom/actions/workflows/dependencies.yml/badge.svg?branch=dev)](https://github.com/pmonks/tools-pom/actions?query=workflow%3Adependencies+branch%3Adev) |
 
-[![Latest Version](https://img.shields.io/clojars/v/com.github.pmonks/tools-pom)](https://clojars.org/com.github.pmonks/tools-pom/) [![Open Issues](https://img.shields.io/github/issues/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/issues) [![License](https://img.shields.io/github/license/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/blob/main/LICENSE)
+[![Latest Version](https://img.shields.io/clojars/v/com.github.pmonks/tools-pom)](https://clojars.org/com.github.pmonks/tools-pom/) [![License](https://img.shields.io/github/license/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/blob/release/LICENSE) [![Open Issues](https://img.shields.io/github/issues/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/issues)
 
 
 # tools-pom
@@ -45,14 +45,11 @@ Express a maven dependency in your `deps.edn`, for a build tool alias:
 ### Add comprehensive `pom` information and a `pom` build task to your build
 
 ```clojure
-(def lib       'com.github.yourusername/yourproject)
-(def version   (format "1.0.%s" (b/git-count-revs nil)))
-
 (defn- set-opts
   [opts]
   (assoc opts
-         :lib          lib
-         :version      version
+         :lib          'com.github.yourusername/yourproject
+         :version      (format "1.0.%s" (b/git-count-revs nil))
          :write-pom    true
          :validate-pom true
          ; Note: this EDN can come from anywhere - you could externalise it into a separate edn file (e.g. pom.edn), synthesise it from information elsewhere in your project, or whatever other scheme you like
@@ -79,17 +76,17 @@ Express a maven dependency in your `deps.edn`, for a build tool alias:
 
 ## Contributor Information
 
-[Contributing Guidelines](https://github.com/pmonks/tools-pom/blob/main/.github/CONTRIBUTING.md)
+[Contributing Guidelines](https://github.com/pmonks/tools-pom/blob/release/.github/CONTRIBUTING.md)
 
 [Bug Tracker](https://github.com/pmonks/tools-pom/issues)
 
-[Code of Conduct](https://github.com/pmonks/tools-pom/blob/main/.github/CODE_OF_CONDUCT.md)
+[Code of Conduct](https://github.com/pmonks/tools-pom/blob/release/.github/CODE_OF_CONDUCT.md)
 
 ### Developer Workflow
 
-This project uses the [git-flow branching strategy](https://nvie.com/posts/a-successful-git-branching-model/), with the caveat that the permanent branches are called `main` and `dev`, and any changes to the `main` branch are considered a release and auto-deployed (JARs to Clojars, API docs to GitHub Pages, etc.).
+This project uses the [git-flow branching strategy](https://nvie.com/posts/a-successful-git-branching-model/), and the permanent branches are called `release` and `dev`.  Any changes to the `release` branch are considered a release and auto-deployed (JARs to Clojars, API docs to GitHub Pages, etc.).
 
-For this reason, **all development must occur either in branch `dev`, or (preferably) in temporary branches off of `dev`.**  All PRs from forked repos must also be submitted against `dev`; the `main` branch is **only** updated from `dev` via PRs created by the core development team.  All other changes submitted to `main` will be rejected.
+For this reason, **all development must occur either in branch `dev`, or (preferably) in temporary branches off of `dev`.**  All PRs from forked repos must also be submitted against `dev`; the `release` branch is **only** updated from `dev` via PRs created by the core development team.  All other changes submitted to `release` will be rejected.
 
 ### Build Tasks
 
