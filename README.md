@@ -10,6 +10,9 @@
 
 A Clojure [tools.build](https://github.com/clojure/tools.build) task library related to the generation of comprehensive `pom.xml` files (beyond the limited set of POM elements tools.build/tools.deps generates).
 
+> [!IMPORTANT]
+> `tools.build` v0.9.6 (October 2023) added comprehensive `pom.xml` file generation support via the [`:pom-data` option to the `write-pom` fn](https://clojure-doc.org/articles/cookbooks/cli_build_projects/#the-generated-pomxml-file).  That enhancement has made this library significantly less useful, and it's recommended that you use that functionality instead of what's here.
+
 ## Tasks
 
 1. `pom` - generate a comprehensive `pom.xml` file from EDN (which can come from anywhere - stored in your `build.clj`, `deps.edn` or a separate file, or synthesised on the fly in your build tool script).
