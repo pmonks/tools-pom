@@ -10,6 +10,7 @@ pom.xml.asc
 .cpcache/
 .nrepl-port
 .shell_history
+.nvd/
 *.log
 uberjar/
 /config.edn

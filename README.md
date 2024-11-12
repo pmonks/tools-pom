@@ -8,7 +8,7 @@
 
 # tools-pom
 
-A Clojure [tools.build](https://github.com/clojure/tools.build) task library related to the generation of comprehensive `pom.xml` files (beyond the limited set of POM elements tools.build/tools.deps generates).
+A Clojure [tools.build](https://github.com/clojure/tools.build) task library related to the generation of comprehensive `pom.xml` files.
 
 > [!IMPORTANT]
 > `tools.build` v0.9.6 (October 2023) added comprehensive `pom.xml` file generation support via the [`:pom-data` option to the `write-pom` fn](https://clojure-doc.org/articles/cookbooks/cli_build_projects/#the-generated-pomxml-file).  That enhancement has made this library significantly less useful, and it's recommended that you use that functionality instead of what's here.
@@ -19,12 +19,6 @@ A Clojure [tools.build](https://github.com/clojure/tools.build) task library rel
 
 Note that the `pom` task is entirely data-driven, so if your input data includes elements that are not valid in a [Maven POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html), the resulting file will be invalid.  You can check your input data by enabling the `:validate-pom` flag in the options that get passed to the task - this validates the resulting `pom.xml` file against the Maven POM schema, reporting any errors.
 
-**Important note:** it is strongly recommended that you do not use this task library in conjunction with [build-clj](https://github.com/seancorfield/build-clj) (e.g. for JAR file construction), since:
-1. [build-clj silently overwrites various elements inside whatever "template" `pom.xml` is provided to it](https://github.com/seancorfield/build-clj/issues/24)
-2. some of the values for those overwritten elements assume you [label your tags in source control a specific way](https://github.com/seancorfield/build-clj/blob/v0.8.3/src/org/corfield/build.clj#L151), which will [break downstream tooling that depends on those values being correct](https://cljdoc.org/builds/59944)
-
-The alternative is to use vanilla tools.build tasks for all build operations that involve `pom.xml` files (notably JAR file construction), since they doesn't suffer from the same issue.
-
 ## Using the library
 
 ### Dependency
@@ -34,7 +28,7 @@ Express a maven dependency in your `deps.edn`, for a build tool alias:
 ```edn
   :aliases
     :build
-      {:deps       {com.github.pmonks/tools-pom {:mvn/version "LATEST_CLOJARS_VERSION"}}
+      {:deps       {com.github.pmonks/tools-pom {:mvn/version "RELEASE"}}
        :ns-default your.build.ns}
 ```
 
@@ -112,6 +106,6 @@ Please note that the `deploy` task is restricted to the core development team (a
 
 Copyright © 2021 Peter Monks
 
-Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+Distributed under the [Mozilla Public License, version 2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
+SPDX-License-Identifier: [`MPL-2.0`](https://spdx.org/licenses/MPL-2.0)
