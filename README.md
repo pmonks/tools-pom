@@ -1,12 +1,12 @@
-| | | |
-|---:|:---:|:---:|
-| [**release**](https://github.com/pmonks/tools-pom/tree/release) | [![CI](https://github.com/pmonks/tools-pom/actions/workflows/ci.yml/badge.svg?branch=release)](https://github.com/pmonks/tools-pom/actions?query=workflow%3ACI+branch%3Arelease) | [![Dependencies](https://github.com/pmonks/tools-pom/actions/workflows/dependencies.yml/badge.svg?branch=release)](https://github.com/pmonks/tools-pom/actions?query=workflow%3Adependencies+branch%3Arelease) |
-| [**dev**](https://github.com/pmonks/tools-pom/tree/dev) | [![CI](https://github.com/pmonks/tools-pom/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/pmonks/tools-pom/actions?query=workflow%3ACI+branch%3Adev) | [![Dependencies](https://github.com/pmonks/tools-pom/actions/workflows/dependencies.yml/badge.svg?branch=dev)](https://github.com/pmonks/tools-pom/actions?query=workflow%3Adependencies+branch%3Adev) |
-
-[![Latest Version](https://img.shields.io/clojars/v/com.github.pmonks/tools-pom)](https://clojars.org/com.github.pmonks/tools-pom/) [![License](https://img.shields.io/github/license/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/blob/release/LICENSE) [![Open Issues](https://img.shields.io/github/issues/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/issues)
-
-
 # tools-pom
+
+[![CI](https://github.com/pmonks/tools-pom/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/pmonks/tools-pom/actions?query=workflow%3ACI+branch%3Adev)
+[![Dependencies](https://github.com/pmonks/tools-pom/actions/workflows/dependencies.yml/badge.svg?branch=dev)](https://github.com/pmonks/tools-pom/actions?query=workflow%3Adependencies+branch%3Adev)
+<br/>
+[![Latest Version](https://img.shields.io/clojars/v/com.github.pmonks/tools-pom)](https://clojars.org/com.github.pmonks/tools-pom/)
+[![License](https://img.shields.io/github/license/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/blob/release/LICENSE)
+[![Open Issues](https://img.shields.io/github/issues/pmonks/tools-pom.svg)](https://github.com/pmonks/tools-pom/issues)
+![Maintained](https://badges.ws/badge/?label=maintained&value=yes,+at+author's+discretion)
 
 A Clojure [tools.build](https://github.com/clojure/tools.build) task library related to the generation of comprehensive `pom.xml` files.
 
